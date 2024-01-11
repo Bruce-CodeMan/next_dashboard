@@ -3,10 +3,14 @@
  * @Author: Bruce Hsu
  * @Description: 
  */
+// src/layouts/dashboard/layout.tsx
 
 // Custom Imports
-import Header from "./header"
-import Sidebar from "./sidebar"
+import Header from "./header/header"
+import Sidebar from "./siderbar/sidebar"
+
+// Custom Imports
+import styles from "./dashboard.module.css"
 
 interface Props {
 	children: React.ReactNode
@@ -14,10 +18,14 @@ interface Props {
 
 export default function DashboardLayout({children}: Props) {
 	return (
-		<div>
-			<Header />
-			<Sidebar />
-			{children}
+		<div className={styles.container}>
+			<div className={styles.menu}>
+				<Sidebar />
+			</div>
+			<div className={styles.content}>
+				<Header />
+				{children}
+			</div>
 		</div>
 	)
 }
