@@ -22,8 +22,8 @@ export default function DashboardPage() {
 					<Card />
 					<Card />
 				</div>
-				<Chart />
 				<Transactions />
+				<Chart />
 			</div>
 			<div className={styles.side}>
 				<RightBar />

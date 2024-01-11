@@ -24,7 +24,11 @@ export default function Transactions() {
 				<tbody>
 					<tr>
 						<td>
-							<Image src="/noavatar.png" alt="" width={40} height={40} className={styles.userImage}/>
+							<div className={styles.user}>
+								<Image src="/noavatar.png" alt="" width={40} height={40} className={styles.userImage}/>
+								Bruce
+							</div>
+							
 						</td>
 						<td>
 							<span className={`${styles.status} ${styles.pending}`}>Pending</span>
@@ -34,7 +38,10 @@ export default function Transactions() {
 					</tr>
 					<tr>
 						<td>
-							<Image src="/noavatar.png" alt="" width={40} height={40} className={styles.userImage}/>
+						<div className={styles.user}>
+								<Image src="/noavatar.png" alt="" width={40} height={40} className={styles.userImage}/>
+								Bruce
+							</div>
 						</td>
 						<td>
 							<span className={`${styles.status} ${styles.cancel}`}>cancel</span>
@@ -44,7 +51,10 @@ export default function Transactions() {
 					</tr>
 					<tr>
 						<td>
-							<Image src="/noavatar.png" alt="" width={40} height={40} className={styles.userImage}/>
+						<div className={styles.user}>
+								<Image src="/noavatar.png" alt="" width={40} height={40} className={styles.userImage}/>
+								Bruce
+							</div>
 						</td>
 						<td>
 							<span className={`${styles.status} ${styles.success}`}>success</span>
