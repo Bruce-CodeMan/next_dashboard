@@ -6,7 +6,7 @@
 // src/layouts/dashboard/layout.tsx
 
 // Custom Imports
-import Header from "./header/header"
+import Header from "./navbar/navbar"
 import Sidebar from "./siderbar/sidebar"
 
 // Custom Imports

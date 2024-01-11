@@ -9,7 +9,8 @@ import {
 	MdDashboard,
 	MdSupervisedUserCircle,
 	MdShoppingBag,
-	MdWork
+	MdWork,
+	MdLogout
 } from "react-icons/md"
 
 // Custom Imports - Style
@@ -73,6 +74,8 @@ export default function Sidebar() {
 					</li>
 				))}
 			</ul>
+
+			<button className={styles.logout}><MdLogout /> Logout</button>
 		</div>
 	)
 }
