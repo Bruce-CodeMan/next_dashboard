@@ -13,6 +13,8 @@ import styles from "@/layouts/dashboard/users/dashboard.module.css"
 // Custom Imports - Component
 import Search from "@/components/search/search"
 import Pagination from "@/components/pagination/pagination"
+// Custom Imports - Path
+import paths from "@/routes/path"
 
 export default async function Item() {
 
@@ -20,7 +22,7 @@ export default async function Item() {
 		<div className={styles.container}>
 			<div className={styles.top}>
 				<Search placeholder="Please input the user"/>
-				<Link href="/dashboard/users/add">
+				<Link href={`${paths.user.new}`}>
 					<button className={styles.addButton}>Add New</button>
 				</Link>
 			</div>
@@ -49,7 +51,7 @@ export default async function Item() {
 						<td>Active</td>
 						<td>
 							<div className={styles.buttons}>
-								<Link href="/dashboard/users/test">
+								<Link href={`${paths.user.view("test")}`}>
 									<button className={`${styles.button} ${styles.view}`}>View</button>
 								</Link>
 								<button className={`${styles.button} ${styles.delete}`}>Delete</button>

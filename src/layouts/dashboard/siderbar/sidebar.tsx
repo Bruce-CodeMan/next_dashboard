@@ -5,10 +5,10 @@
  */
 
 // src/layouts/dashboard/sidebar/sidebar.tsx
+import Image from "next/image"
 import {
 	MdDashboard,
 	MdSupervisedUserCircle,
-	MdShoppingBag,
 	MdWork,
 	MdLogout
 } from "react-icons/md"
@@ -19,7 +19,9 @@ import styles from "./sidebar.module.css"
 import { MenuGroup, MenuItem } from "@/types/dashboard"
 // Custom Imports - Component
 import MenuLink from "./menuLink/menuLink"
-import Image from "next/image"
+// Custom Imports - Path
+import paths from "@/routes/path"
+
 
 const menuItems: MenuGroup[] = [
 	{
@@ -27,12 +29,12 @@ const menuItems: MenuGroup[] = [
 		list: [
 			{
 				title: "Dashboard",
-				path: "/dashboard",
+				path: paths.dashboard,
 				icon: <MdDashboard />
 			},
 			{
 				title: "Users",
-				path: "/dashboard/users",
+				path: paths.user.root,
 				icon: <MdSupervisedUserCircle/>
 			}
 		]
