@@ -1,0 +1,43 @@
+/* src/layouts/dashboard/login/login.module.css */
+.container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.title {
+	position: absolute;
+	top: 20vh;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--bgSoft);
+	height: max-content;
+	width: 500px;
+	padding: 50px;
+	border-radius: 10px;
+	justify-content: center;
+	gap: 20px;
+}
+
+.form input {
+	padding: 30px;
+	border-radius: 5px;
+	border: 2px solid #2e374a;
+	background-color: var(--bg);
+	outline: none;
+}
+
+.form button {
+	width: 100%;
+	background-color: teal;
+	border-radius: 5px;
+	padding: 10px;
+}
