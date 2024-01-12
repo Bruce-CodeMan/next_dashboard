@@ -34,11 +34,6 @@ const menuItems: MenuGroup[] = [
 				title: "Users",
 				path: "/dashboard/users",
 				icon: <MdSupervisedUserCircle/>
-			},
-			{
-				title: "Products",
-				path: "/dashboard/products",
-				icon: <MdShoppingBag />
 			}
 		]
 	},

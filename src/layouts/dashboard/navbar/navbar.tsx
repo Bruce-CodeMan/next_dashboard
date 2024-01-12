@@ -18,6 +18,8 @@ import {
 
 // Custom Imports - Style
 import styles from "./navbar.module.css"
+// Custom Imports - Component
+import Search from "@/components/search/search";
 
 export default function Header() {
 
@@ -27,10 +29,7 @@ export default function Header() {
 		<div className={styles.container}>
 			<div className={styles.title}>{pathname.split("/").pop()}</div>
 			<div className={styles.menu}>
-				<div className={styles.search}>
-					<MdSearch />
-					<input type="text" placeholder="Search..." className={styles.input}/>
-				</div>
+				<Search placeholder="Search..."/>
 				<div className={styles.icons}>
 					<MdOutlineChat size={20}/>
 					<MdNotifications size={20}/>

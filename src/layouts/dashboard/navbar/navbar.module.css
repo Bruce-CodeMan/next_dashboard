@@ -20,22 +20,6 @@
 	gap: 20px;
 }
 
-.search {
-	display: flex;
-	align-items: center;
-	gap:10px;
-	background-color: #2e374a;
-	padding: 10px;
-	border-radius: 10px;
-}
-
-.input {
-	outline: none;
-	background-color: transparent;
-	border: none;
-	color: var(--text);
-}
-
 .icons {
 	display: flex;
 	gap: 20px;

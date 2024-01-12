@@ -3,6 +3,7 @@
  * @Author: Bruce Hsu
  * @Description: 
  */
+// src/components/rightbar/rightbar.tsx
 import Image from "next/image"
 
 import { MdPlayCircleFilled } from "react-icons/md"
