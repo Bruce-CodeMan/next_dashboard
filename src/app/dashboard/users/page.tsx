@@ -10,13 +10,23 @@ import Link from "next/link"
 
 // Custom Imports - Style
 import styles from "@/layouts/dashboard/users/dashboard.module.css"
+
 // Custom Imports - Component
 import Search from "@/components/search/search"
 import Pagination from "@/components/pagination/pagination"
+
 // Custom Imports - Path
 import paths from "@/routes/path"
 
+// Custom Imports - FetchData
+import { fetchUsers } from "@/db/queries/users"
+
+// Custom Imports - Type
+import { User } from "@prisma/client"
+
 export default async function Item() {
+
+	const users = await fetchUsers();
 
 	return (
 		<div className={styles.container}>
@@ -30,7 +40,6 @@ export default async function Item() {
 				<thead>
 					<tr>
 						<td>Name</td>
-						<td>Email</td>
 						<td>Created At</td>
 						<td>Role</td>
 						<td>Status</td>
@@ -38,26 +47,28 @@ export default async function Item() {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>
-							<div className={styles.user}>
-								<Image src="/noavatar.png" alt="" width={40} height={40} className={styles.userImage}/>
-								Bruce Hsu
-							</div>
-						</td>
-						<td>xxx@qq.com</td>
-						<td>13.01.2022</td>
-						<td>Admin</td>
-						<td>Active</td>
-						<td>
-							<div className={styles.buttons}>
-								<Link href={`${paths.user.view("test")}`}>
-									<button className={`${styles.button} ${styles.view}`}>View</button>
-								</Link>
-								<button className={`${styles.button} ${styles.delete}`}>Delete</button>
-							</div>
-						</td>
-					</tr>
+					{users.map((user: User) => (
+						<tr key={user.id}>
+							<td>
+								<div className={styles.user}>
+									<Image src="/noavatar.png" alt="" width={40} height={40} className={styles.userImage}/>
+									{user.username}
+								</div>
+							</td>
+							<td>{user.createTime.toString().slice(4, 16)}</td>
+							<td>{user.isAdmin ? "Admin" : "Client"}</td>
+							<td>{user.isActive ? "Active" : "Passive"}</td>
+							<td>
+								<div className={styles.buttons}>
+									<Link href={`${paths.user.view(user.id.toString())}`}>
+										<button className={`${styles.button} ${styles.view}`}>View</button>
+									</Link>
+									<button className={`${styles.button} ${styles.delete}`}>Delete</button>
+								</div>
+							</td>
+						</tr>
+					))}
+					
 				</tbody>
 			</table>
 			<Pagination />
