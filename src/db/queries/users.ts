@@ -7,7 +7,19 @@
 import db from "@/db/index"
 import type { User } from "@prisma/client"
 
-export async function fetchUsers(q: string): Promise<User[]> {
+interface FetchUsersProps {
+	users: User[];
+	count: number;
+}
+
+export async function fetchUsers(q: string, page: string, pageSize=1): Promise<FetchUsersProps> {
+
+	// Convert the page into the number type
+	const pageNumber = parseInt(page)
+	if(isNaN(pageNumber) || pageNumber < 1){
+		throw new Error("PageNumber must be a positive number.")
+	}
+
 	try {
 		const whereCondition = q ? {
 			username: {
@@ -15,10 +27,14 @@ export async function fetchUsers(q: string): Promise<User[]> {
 			}
 		} : {}
 		const users = await db.user.findMany({
-			where: whereCondition
+			where: whereCondition,
+			skip: (pageNumber - 1) * pageSize,
+			take: pageSize
 		});
-		console.log("users: ", users)
-		return users;
+		const count = await db.user.count({
+			where: whereCondition
+		})
+		return { count, users };
 	}catch(err: unknown) {
 		if(err instanceof Error) {
 			throw new Error(err.message)

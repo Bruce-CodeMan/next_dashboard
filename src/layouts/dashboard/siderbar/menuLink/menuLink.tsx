@@ -22,7 +22,6 @@ export default function MenuLink({ item }: MenuLinkProps) {
 
 	// Check the pathname
 	const pathname = usePathname();
-	console.log("pathname: ", pathname)
 
 
 	return (

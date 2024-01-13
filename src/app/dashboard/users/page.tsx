@@ -26,6 +26,7 @@ import { User } from "@prisma/client"
 
 interface SearchParams {
 	q?: string;
+	page: string;
 }
 
 interface ItemProps {
@@ -35,8 +36,9 @@ interface ItemProps {
 export default async function Item({ searchParams }: ItemProps) {
 
 	const q = searchParams?.q || ""
+	const page = searchParams?.page || "1"
 
-	const users = await fetchUsers(q)
+	const { count, users } = await fetchUsers(q, page)
 
 	return (
 		<div className={styles.container}>
@@ -81,7 +83,7 @@ export default async function Item({ searchParams }: ItemProps) {
 					
 				</tbody>
 			</table>
-			<Pagination />
+			<Pagination count={count}/>
 		</div>
 	)
 }
