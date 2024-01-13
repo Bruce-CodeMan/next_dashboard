@@ -3,11 +3,13 @@
  * @Author: Bruce Hsu
  * @Description: 
  */
+// src/components/search/search.tsx
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { MdSearch } from "react-icons/md"
+import { useDebouncedCallback } from "use-debounce"
 
 // Custom Imports - Style
 import styles from "./search.module.css"
@@ -23,11 +25,16 @@ export default function Search({placeholder}: SearchProps) {
 	const pathname = usePathname();
 	const { replace } = useRouter();
 
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = useDebouncedCallback((e: React.ChangeEvent<HTMLInputElement>) => {
 		const params = new URLSearchParams(searchParams)
-		params.set("q", e.target.value)
+		if(e.target.value){
+			e.target.value.length > 2 && params.set("q", e.target.value)
+		}else{
+			params.delete("q")
+		}
+		
 		replace(`${pathname}?${params}`)
-	}
+	}, 500)
 
 	return (
 		<div className={styles.container}>

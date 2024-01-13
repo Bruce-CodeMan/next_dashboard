@@ -24,9 +24,19 @@ import { fetchUsers } from "@/db/queries/users"
 // Custom Imports - Type
 import { User } from "@prisma/client"
 
-export default async function Item() {
+interface SearchParams {
+	q?: string;
+}
 
-	const users = await fetchUsers();
+interface ItemProps {
+	searchParams: SearchParams
+}
+
+export default async function Item({ searchParams }: ItemProps) {
+
+	const q = searchParams?.q || ""
+
+	const users = await fetchUsers(q)
 
 	return (
 		<div className={styles.container}>
