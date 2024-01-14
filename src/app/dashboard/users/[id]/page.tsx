@@ -34,11 +34,12 @@ export default async function SingleUserPage({ params }: UserProps) {
 				{user?.username}
 			</div>
 			<div className={styles.formContainer}>
-				<form action="" className={styles.form}>
+				<form action={actions.updateUser} className={styles.form}>
+					<input type="hidden" name="id" value={id}/>
 					<label>UserName</label>
-					<input type="text" name="username" placeholder={user?.username}/>
+					<input type="text" name="username" placeholder={user?.username} defaultValue={user?.username || ""}/>
 					<label>desc</label>
-					<textarea name="desc" placeholder={user?.desc}/>
+					<textarea name="desc" placeholder={user?.desc} defaultValue={user?.desc || ""}/>
 					<button>Update</button>
 				</form>
 			</div>

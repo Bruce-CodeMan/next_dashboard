@@ -31,7 +31,6 @@ export default function Pagination({ count }: PageProps) {
 	const hasNext = ITEM_PAGE_SIZE * (parseInt(page) - 1) + ITEM_PAGE_SIZE < count
 
 	const handleChangePage = (type: string) => {
-		console.log("type: ", type)
 		type === "prev" 
 			? params.set("page", (parseInt(page) - 1).toString())
 			: params.set("page", (parseInt(page) + 1).toString()) 
