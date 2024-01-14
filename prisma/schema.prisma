@@ -17,6 +17,7 @@ model User {
 	img String
 	isAdmin Boolean @default(false)
 	isActive Boolean @default(false)
+	desc String @db.Text
 	createTime DateTime @default(now())
 	updateTime DateTime @updatedAt
 }
