@@ -1,3 +1,10 @@
+/*
+ * @Date: 2024-01-13 15:09:05
+ * @Author: Bruce Hsu
+ * @Description: 
+ */
+
+// src/app/layout.tsx
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -16,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className} suppressHydrationWarning={true}>{children}</body>
     </html>
   )
 }

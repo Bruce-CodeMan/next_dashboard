@@ -7,3 +7,4 @@
 // src/actions/index.ts
 export { addUser } from "./create-user";
 export { deleteUser } from "./delete-user"
+export { queryUser } from "./query-user"
