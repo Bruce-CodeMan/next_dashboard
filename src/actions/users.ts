@@ -3,10 +3,14 @@
  * @Author: Bruce Hsu
  * @Description: 
  */
+
+// src/actions/users.ts
 "use server";
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+
+import bcrypt from "bcrypt"
 
 // Custom Imports - Db
 import db from "@/db/index"
@@ -27,16 +31,18 @@ export async function addUser(formData: FormData) {
 	if (username === null || password === null || desc === null) {
 		throw new Error("Required fields are missing")
 	}
-	const img = "1.png"
+
+	const salt = await bcrypt.genSalt(10)
+	const hashedPassword = await bcrypt.hash(password, salt)
 
 	try{
 		await db.user.create({
 			data: {
 				username,
-				password,
+				password: hashedPassword,
 				isAdmin,
 				desc,
-				img
+				img: "1.png"
 			}
 		})
 	} catch (err: unknown) {
