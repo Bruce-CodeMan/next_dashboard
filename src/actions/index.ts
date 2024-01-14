@@ -5,4 +5,5 @@
  */
 
 // src/actions/index.ts
-export { addUser } from "./users";
+export { addUser } from "./create-user";
+export { deleteUser } from "./delete-user"

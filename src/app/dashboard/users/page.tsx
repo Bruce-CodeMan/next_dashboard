@@ -24,6 +24,9 @@ import { fetchUsers } from "@/db/queries/users"
 // Custom Imports - Type
 import { User } from "@prisma/client"
 
+import * as actions from "@/actions"
+
+
 interface SearchParams {
 	q?: string;
 	page: string;
@@ -75,7 +78,10 @@ export default async function Item({ searchParams }: ItemProps) {
 									<Link href={`${paths.user.view(user.id.toString())}`}>
 										<button className={`${styles.button} ${styles.view}`}>View</button>
 									</Link>
-									<button className={`${styles.button} ${styles.delete}`}>Delete</button>
+									<form action={actions.deleteUser}>
+										<input type="hidden" name="id" value={user.id}/>
+										<button className={`${styles.button} ${styles.delete}`}>Delete</button>
+									</form>								
 								</div>
 							</td>
 						</tr>
