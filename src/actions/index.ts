@@ -9,7 +9,3 @@ export { addUser } from "./create-user";
 export { deleteUser } from "./delete-user"
 export { queryUser } from "./query-user"
 export { updateUser } from "./update-user"
-
-// authentication
-export { generateJWT } from "./create-token"
-export { verifyJWT } from "./verify-token"

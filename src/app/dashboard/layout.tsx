@@ -7,8 +7,6 @@
 
 // Custom Imports - Layout
 import DashboardLayout from "@/layouts/dashboard/layout"
-// Custom Imports - Guard
-import { AuthGuard } from "@/auth/guard"
 
 interface Props {
 	children: React.ReactNode
@@ -16,8 +14,6 @@ interface Props {
 
 export default function Layout({children}: Props) {
 	return (
-		<AuthGuard>
-			<DashboardLayout>{children}</DashboardLayout>
-		</AuthGuard>
+		<DashboardLayout>{children}</DashboardLayout>
 	)
 }

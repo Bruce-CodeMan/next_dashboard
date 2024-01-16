@@ -13,7 +13,7 @@ export type JWTContextType = {
 	loading: boolean;
 	authenticated: boolean;
 	unauthenticated: boolean;
-	login: (username: string, password: string) => Promise<void>;
+	login: (formData: FormData) => Promise<void>;
 }
 
 export type ActionMapType<M extends { [index: string]: any}> = {
