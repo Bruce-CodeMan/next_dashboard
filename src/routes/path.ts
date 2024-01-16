@@ -13,7 +13,8 @@ const paths = {
 		root: `${ROOTS.DASHBOARD}/users`,
 		new: `${ROOTS.DASHBOARD}/users/add`,
 		view: (id: string) => `${ROOTS.DASHBOARD}/users/${id}`
-	}
+	},
+	login: "/login"
 }
 
 export default paths
